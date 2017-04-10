@@ -16,6 +16,7 @@
         }
       }
       > a {
+        position: relative;
         padding-top: 0;
         padding-bottom: 0;
       }
@@ -40,6 +41,28 @@
     display: inline-block;
     font-size: em(26px);
     transform: rotateZ(30deg);
+  }
+
+  .icon-badge {
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+    background-color: $navbar-default-bg;
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      z-index: 2;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      background-color: $red;
+      border-radius: 50%;
+    }
   }
 
   .avatar, .avatar > img {
