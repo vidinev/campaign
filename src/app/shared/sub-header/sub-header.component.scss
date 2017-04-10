@@ -1,0 +1,38 @@
+@import "../../../assets/scss/_bootstrap-custom.scss";
+
+$sub-header-height: 60px;
+
+:host {
+  > .container-fluid {
+    background-color: $white;
+    padding: 0 $large-padding;
+  }
+  .nav {
+    border: none;
+    > li {
+      display: flex;
+      align-items: center;
+      height: $sub-header-height;
+      margin-left: 15px;
+      &.active {
+        border-bottom: 2px solid $light-blue;
+        > a {
+          color: $text-color;
+        }
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+      > a {
+        font-size: em(13.7px);
+        line-height: 1;
+        font-weight: bold;
+        padding: 0 10px;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        color: $gray-blue;
+      }
+    }
+  }
+}
