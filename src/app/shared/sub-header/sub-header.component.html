@@ -1,10 +1,10 @@
 <div class="container-fluid">
-  <ul class="nav nav-tabs">
-    <li>
-      <a href="" class="text-uppercase">Campaign monitor</a>
+  <ul class="nav nav-tabs" *ngIf="visible">
+    <li routerLinkActive="active">
+      <a href="" class="text-uppercase" routerLink="/campaign/monitor">Campaign monitor</a>
     </li>
-    <li class="active">
-      <a href="" class="text-uppercase">Create new campaign</a>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a href="" class="text-uppercase" routerLink="/campaign">Create new campaign</a>
     </li>
   </ul>
 </div>

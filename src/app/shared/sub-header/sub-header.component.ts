@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sub-header',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class SubHeaderComponent {
 
-  constructor() { }
+  public get visible(): boolean {
+    return this.router.isActive('/campaign', false);
+  }
+
+  constructor(public router: Router) { }
 
 }
