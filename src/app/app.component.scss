@@ -1,0 +1,9 @@
+@import "../assets/scss/_bootstrap-custom.scss";
+
+:host {
+  .main-container {
+    margin: $large-padding;
+    padding: $large-padding;
+    background: $white;
+  }
+}
