@@ -7,3 +7,21 @@ html, body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
+h1.h1, h2.h2, h3.h3{
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+// Text
+.label-text {
+  display: inline-block;
+  font-size: em(11px);
+  color: $gray-blue;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.gray-blue-text {
+  color: $gray-blue;
+}
