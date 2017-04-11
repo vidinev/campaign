@@ -1,0 +1,31 @@
+@import "./_bootstrap-custom.scss";
+
+.form-control, .form-control:focus {
+  height: 45px;
+  box-shadow: none;
+}
+
+.label-default {
+  background: transparent;
+}
+
+.sub-label {
+  display: block;
+  color: $gray-blue;
+  font-weight: normal;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+.delete-form-control {
+  font-size: em(17px);
+  opacity: 0.5;
+  margin: 14px 0;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  &:hover {
+    opacity: 0.7;
+  }
+}

@@ -12,19 +12,37 @@ $gray-blue: #54728c;
 $light-green: #78daa2;
 
 $body-bg: #eaedee;
+$input-border: #d8d9dd;
 $text-color: #273a49;
+$input-color-placeholder: #b0b6bb;
 
 //Navbar
 $navbar-height: 70px;
 $navbar-border-radius: 0;
 $navbar-default-bg: $dark-blue;
 $navbar-default-link-color: #aab7c1;
-$navbar-default-link-hover-color: #fff;
+$navbar-default-link-hover-color: $white;
 $navbar-default-link-active-bg: transparent;
 $navbar-default-link-active-color: $white;
 $navbar-margin-bottom: 0;
 $nav-link-padding: 10px 20px;
 $nav-link-hover-bg: transparent;
+
+$grid-gutter-width: 20px;
+
+//Form
+$input-border-radius: 3px;
+$input-border-focus: $light-blue;
+$form-group-margin-bottom: 35px;
+
+//Buttons
+$btn-font-weight: bold;
+$btn-default-color: $gray-blue;
+$btn-default-bg: #ebf2f4;
+$btn-default-border: #ebf2f4;
+$btn-primary-color: $white;
+$btn-primary-bg: $light-blue;
+$btn-primary-border: $light-blue;
 
 $large-padding: 40px;
 
