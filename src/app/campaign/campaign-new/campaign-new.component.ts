@@ -16,9 +16,7 @@ const pageConfiguration = {
   ]],
   percent: ['', [
     Validators.required,
-    Validators.pattern(/^-?\d+$/),
-    CustomValidators.min(0),
-    CustomValidators.max(100)
+    Validators.pattern(/^-?\d+%?$/)
   ]]
 };
 
@@ -39,25 +37,35 @@ export class CampaignNewComponent {
 
   form: FormGroup;
   percentMessages: { [name: string]: string; } = {
-    pattern: 'Please enter valid percent value',
-    max: 'Max value 100',
-    min: 'Min value 0'
+    pattern: 'Please enter valid percent value'
   };
 
   constructor() {
     this.form = formBuilder.group(formConfiguration);
     this.addPage();
+    this.addPage();
   }
 
   addPage() {
-    const pagesControl = <FormArray> this.form.controls['pages'];
+    const pagesControl = <FormArray> this.form.get('pages');
     const group = formBuilder.group(pageConfiguration);
     pagesControl.push(group);
   }
 
   removePage(index: number) {
-    const pagesControl = <FormArray> this.form.controls['pages'];
+    const pagesControl = <FormArray> this.form.get('pages');
     pagesControl.removeAt(index);
+  }
+
+  next() {
+    const finalControl = <FormArray> this.form.get('final');
+    const pagesControl = <FormArray> this.form.get('pages');
+    finalControl.markAsTouched();
+    pagesControl.controls.forEach((control) => {
+      control.get('name').markAsTouched();
+      control.get('page').markAsTouched();
+      control.get('percent').markAsTouched();
+    });
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ValidationService } from '../validation.service';
 
@@ -8,10 +8,13 @@ import { ValidationService } from '../validation.service';
   styleUrls: ['./control-messages.component.scss']
 })
 export class ControlMessagesComponent {
-  @Input() public control: FormControl;
-  @Input() public messages: any = {};
+  @Input() control: FormControl;
+  @Input() messages: any = {};
+  @HostBinding('class.add-margin') get addMargin(): boolean {
+    return this.errorMessage;
+  };
 
-  public get errorMessage() {
+  get errorMessage() {
     for (const propertyName in this.control.errors) {
       if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
         if (typeof this.control.errors[propertyName] === 'string') {

@@ -2,9 +2,12 @@
   position: relative;
   display: block;
   width: 100%;
+  &.add-margin {
+    height: 10px;
+  }
   > div {
     position: absolute;
-    padding: 5px 0;
+    padding: 3px 0;
     font-size: 13px;
     color: #ff3918;
     opacity: 0.8;

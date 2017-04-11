@@ -44,7 +44,7 @@
         </label>
       </div>
       <div formArrayName="pages">
-        <div *ngFor="let page of form.get('pages').controls; let index = index;">
+        <div *ngFor="let page of form.get('pages').controls; let index = index;" class="mb-15 remove-last">
           <div [formGroupName]="index">
             <div class="col-xs-5">
               <input type="text"
@@ -71,17 +71,20 @@
                                         [control]="page.get('percent')"></app-control-messages>
                 </div>
                 <div class="col-xs-2">
-                  <i class="lnr lnr-cross delete-form-control"></i>
+                  <i class="lnr lnr-cross delete-form-control"
+                     (click)="removePage(index)"
+                     *ngIf="form.get('pages').controls.length > 1"></i>
                 </div>
               </div>
             </div>
+            <div class="clearfix"></div>
           </div>
         </div>
       </div>
       <div class="clearfix"></div>
     </div>
     <div class="col-xs-12">
-      <a class="btn btn-default indent pull-left">Add new landing page</a>
+      <a class="btn btn-default indent pull-left" (click)="addPage()">Add new landing page</a>
       <a class="btn btn-default pull-left">Show tracking tokens</a>
     </div>
   </form>
@@ -90,7 +93,7 @@
   <div class="separator small-margin"></div>
   <div class="row">
     <div class="col-xs-12">
-      <a class="btn btn-primary pull-right">Next</a>
+      <button class="btn btn-primary pull-right" (click)="next()">Next</button>
       <a class="btn btn-default indent pull-right">Back</a>
     </div>
   </div>
