@@ -43,20 +43,37 @@
           Add your landing page URLs. Use the allocation field to split traffic between each page.
         </label>
       </div>
-      <div>
-        <div class="col-xs-5">
-          <input class="form-control form" title="Page name" placeholder="Page name">
-        </div>
-        <div class="col-xs-5">
-          <input class="form-control form" title="Add page URL" placeholder="Add page URL">
-        </div>
-        <div class="col-xs-2">
-          <div class="row">
-            <div class="col-xs-10">
-              <input class="form-control form" title="Set %" placeholder="Set %">
+      <div formArrayName="pages">
+        <div *ngFor="let page of form.get('pages').controls; let index = index;">
+          <div [formGroupName]="index">
+            <div class="col-xs-5">
+              <input type="text"
+                     class="form-control form"
+                     title="Page name"
+                     placeholder="Page name"
+                     formControlName="name">
+              <app-control-messages class="control-messages" [control]="page.get('name')"></app-control-messages>
+            </div>
+            <div class="col-xs-5">
+              <input type="text"
+                     class="form-control form"
+                     title="Add page URL"
+                     placeholder="Add page URL"
+                     formControlName="page">
+              <app-control-messages class="control-messages" [control]="page.get('page')"></app-control-messages>
             </div>
             <div class="col-xs-2">
-              <i class="lnr lnr-cross delete-form-control"></i>
+              <div class="row">
+                <div class="col-xs-10">
+                  <input class="form-control form" title="Set %" placeholder="Set %" formControlName="percent">
+                  <app-control-messages class="control-messages"
+                                        [messages]="percentMessages"
+                                        [control]="page.get('percent')"></app-control-messages>
+                </div>
+                <div class="col-xs-2">
+                  <i class="lnr lnr-cross delete-form-control"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
