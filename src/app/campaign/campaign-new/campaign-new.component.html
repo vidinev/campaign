@@ -46,7 +46,7 @@
         </label>
       </div>
       <div formArrayName="pages">
-        <div *ngFor="let page of form.get('pages').controls; let index = index;" class="mb-15 remove-last">
+        <div *ngFor="let page of form.get('pages')['controls']; let index = index;" class="mb-15 remove-last">
           <div [formGroupName]="index" class="inline-inputs">
             <div class="col-md-4 col-lg-5">
               <input type="text"
