@@ -37,4 +37,14 @@ h1.h1, h2.h2, h3.h3{
   }
 }
 
+.separator {
+  margin: 35px -50px;
+  height: 1px;
+  background-color: $lighten-gray;
+  &.small-margin {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
 @import "assets/scss/forms";

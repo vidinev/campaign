@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from 'ng2-validation';
+
+const formBuilder = new FormBuilder();
+
+const formConfiguration = {
+  final: ['', [
+    Validators.required,
+    CustomValidators.url
+  ]],
+  pages: formBuilder.array([])
+};
 
 @Component({
   selector: 'app-campaign-new',
   templateUrl: './campaign-new.component.html',
   styleUrls: ['./campaign-new.component.scss']
 })
-export class CampaignNewComponent implements OnInit {
+export class CampaignNewComponent {
 
-  constructor() { }
+  form: FormGroup;
 
-  ngOnInit() {
+  constructor() {
+    this.form = formBuilder.group(formConfiguration);
   }
 
 }

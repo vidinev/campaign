@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
  * 2) Add redux to project
  * 3) Handle sub header state via redux
  * 4) Refactor components
+ * 5) Shared module
 * */
 
 @Component({

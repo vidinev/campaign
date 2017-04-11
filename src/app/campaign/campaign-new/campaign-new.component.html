@@ -18,7 +18,7 @@
 </div>
 <div class="separator"></div>
 <div class="row">
-  <form name="landingPages">
+  <form name="landingPages" [formGroup]="form">
     <div class="form-group">
       <div class="col-xs-12">
         <label class="label-default" for="finalUrl">
@@ -29,7 +29,8 @@
         </label>
       </div>
       <div class="col-xs-5">
-        <input class="form-control form" id="finalUrl">
+        <input class="form-control form" id="finalUrl" formControlName="final">
+        <app-control-messages class="control-messages" [control]="form.get('final')"></app-control-messages>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -69,7 +70,7 @@
   </form>
 </div>
 <div class="main-footer">
-  <div class="separator"></div>
+  <div class="separator small-margin"></div>
   <div class="row">
     <div class="col-xs-12">
       <a class="btn btn-primary pull-right">Next</a>
