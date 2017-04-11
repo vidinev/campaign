@@ -2,31 +2,6 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 
-const formBuilder = new FormBuilder();
-
-const pageConfiguration = {
-  name: ['', [
-    Validators.required,
-    Validators.minLength(1),
-    Validators.maxLength(30)
-  ]],
-  page: ['', [
-    Validators.required,
-    CustomValidators.url
-  ]],
-  percent: ['', [
-    Validators.required,
-    Validators.pattern(/^-?\d+%?$/)
-  ]]
-};
-
-const formConfiguration = {
-  final: ['', [
-    Validators.required,
-    CustomValidators.url
-  ]],
-  pages: formBuilder.array([])
-};
 
 @Component({
   selector: 'app-campaign-new',
@@ -34,21 +9,47 @@ const formConfiguration = {
   styleUrls: ['./campaign-new.component.scss']
 })
 export class CampaignNewComponent {
+  pageConfiguration = {
+    name: ['', [
+      Validators.required,
+      Validators.minLength(1),
+    Validators.maxLength(30)
+    ]],
+    page: ['', [
+      Validators.required,
+      CustomValidators.url
+      ]],
+    percent: ['', [
+      Validators.required,
+      Validators.pattern(/^-?\d+%?$/)
+    ]]
+  };
 
   form: FormGroup;
+
   percentMessages: { [name: string]: string; } = {
     pattern: 'Please enter valid percent value'
   };
 
-  constructor() {
-    this.form = formBuilder.group(formConfiguration);
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group( {
+      final: ['', [
+        Validators.required,
+        CustomValidators.url
+      ]],
+      pages: this.formBuilder.array([])
+    });
     this.addPage();
     this.addPage();
   }
 
+  ngOnDestroy() {
+    this.form.reset();
+  }
+
   addPage() {
     const pagesControl = <FormArray> this.form.get('pages');
-    const group = formBuilder.group(pageConfiguration);
+    const group = this.formBuilder.group(this.pageConfiguration);
     pagesControl.push(group);
   }
 
