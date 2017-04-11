@@ -3,7 +3,9 @@
         <div class="label-text">Step 3</div>
         <div class="clearfix"></div>
         <h3 class="h3 step-name">Setup landing pages</h3>
-        <span class="icon-info">i</span>
+        <span class="icon-info"
+              tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              placement="bottom">i</span>
         <div class="clearfix"></div>
     </div>
     <div class="col-xs-12 col-sm-6 text-right">
@@ -28,7 +30,7 @@
           Add the final URL or final destination URL. Required for exchange clearing.
         </label>
       </div>
-      <div class="col-xs-5">
+      <div class="col-sm-12 col-md-5 col-lg-5">
         <input class="form-control form" id="finalUrl" formControlName="final">
         <app-control-messages class="control-messages" [control]="form.get('final')"></app-control-messages>
       </div>
@@ -45,8 +47,8 @@
       </div>
       <div formArrayName="pages">
         <div *ngFor="let page of form.get('pages').controls; let index = index;" class="mb-15 remove-last">
-          <div [formGroupName]="index">
-            <div class="col-xs-5">
+          <div [formGroupName]="index" class="inline-inputs">
+            <div class="col-md-4 col-lg-5">
               <input type="text"
                      class="form-control form"
                      title="Page name"
@@ -54,7 +56,7 @@
                      formControlName="name">
               <app-control-messages class="control-messages" [control]="page.get('name')"></app-control-messages>
             </div>
-            <div class="col-xs-5">
+            <div class="col-md-4 col-lg-5">
               <input type="text"
                      class="form-control form"
                      title="Add page URL"
@@ -62,7 +64,7 @@
                      formControlName="page">
               <app-control-messages class="control-messages" [control]="page.get('page')"></app-control-messages>
             </div>
-            <div class="col-xs-2">
+            <div class="col-md-4 col-lg-2">
               <div class="row">
                 <div class="col-xs-10">
                   <input class="form-control form" title="Set %" placeholder="Set %" formControlName="percent">
@@ -83,7 +85,7 @@
       </div>
       <div class="clearfix"></div>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12 buttons-container">
       <a class="btn btn-default indent pull-left" (click)="addPage()">Add new landing page</a>
       <a class="btn btn-default pull-left">Show tracking tokens</a>
     </div>

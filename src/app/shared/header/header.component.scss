@@ -4,7 +4,9 @@
   .navbar-default {
     > .container-fluid {
       padding: 0 $large-padding;
-
+      @media (max-width: $screen-md - 1px) {
+        padding: 0 25px;
+      }
     }
     .navbar-nav > li {
       display: flex;

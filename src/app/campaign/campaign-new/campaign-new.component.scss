@@ -3,6 +3,10 @@
 :host {
   .step-name {
     float: left;
+    @media (max-width: $screen-sm - 1px) {
+      margin-bottom: 15px;
+      font-size: em(22px);
+    }
   }
   .icon-info {
     display: inline-block;
@@ -24,6 +28,9 @@
     display: inline-block;
     width: 100%;
     max-width: 250px;
+    @media (max-width: $screen-sm - 1px) {
+      max-width: 100%;
+    }
   }
   .progress-status {
     background-color: $lighten-gray;
@@ -45,5 +52,13 @@
   .progress-description {
     font-size: em(12px);
     opacity: 0.8;
+  }
+  .buttons-container {
+    > .btn {
+      @media (max-width: $screen-sm - 1px) {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+    }
   }
 }
